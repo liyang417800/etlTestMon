@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>PC端播放流畅率监控系统</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- MetisMenu CSS -->
+    <link href="css/plugins/metisMenu/metisMenu.min.css" rel="stylesheet">
+
+    <!-- Timeline CSS -->
+    <link href="css/plugins/timeline.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome-4.1.0/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+    <script src="js/lhgcalendar/lhgcalendar.min.js"></script>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- highcharts -->
+    <script src="js/highcharts/highcharts.js"></script>
+    <!-- vectormap -->
+    <link rel="stylesheet" href="js/jvectormap/jquery-jvectormap-1.2.2.css">
+    <script src="js/jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="js/jvectormap/jquery-jvectormap-cn-merc-en.js"></script>
+    <script src="js/jvectormap/data.js"></script>
+</head>
+
+<body>
+
+    <div id="wrapper">
+        <!-- Navigation -->
+<nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="index.html">PC端播放流畅率监控系统</a>
+    </div>
+
+    <ul class="nav navbar-top-links navbar-right">
+        <li class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                <i class="fa fa-user fa-fw"></i> 谭犇 <i class="fa fa-caret-down"></i>
+            </a>
+            <ul class="dropdown-menu dropdown-user">
+                <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                </li>
+                <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+                </li>
+                <li class="divider"></li>
+                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+
+    <div class="navbar-default sidebar" role="navigation">
+        <div class="sidebar-nav navbar-collapse">
+            <ul class="nav" id="side-menu">
+                <li>
+                    <a class="" href="?page=index">首页</a>
+                </li>
+                <li>
+                    <a class=" active " href="?page=fluencyRate">播放流畅率</a>
+                </li>
+                <li>
+                    <a class="" href="?page=timeConsuming">播放前耗时</a>
+                </li>
+                <li>
+                    <a class="" href="?page=realTimeError">报错</a>
+                </li>
+                <li>
+                    <a class="" href="?page=feedback">用户反馈统计</a>
+                </li>
+                <li style="border-bottom:1px solid #e5e5e5; margin:12px 0;"></li>
+                <li>
+                    <a class="" href="?page=alarmRecord">报警记录</a>
+                </li>
+                <li>
+                    <a class="" href="?page=alarmSetting">报警设置</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>        <div id="page-wrapper" style="min-height: 413px;">
+            <div class="container-fluid">
+                <div class="row ">
+    <h3 class="page-header">播放流畅率  <small class="pull-right"><a href=""><span class="glyphicon glyphicon-save"></span>下载数据</a></small></h3>
+</div>
+
+<div class="row well">
+    <form class="form-inline" role="form">
+        <div style="margin-bottom: 12px;">
+            <div class="form-group">
+                <lable class="control-label">对比方式:</lable>
+                <select class="form-control" style="margin-right: 12px;">
+                    <option selected="" value="横向">横向</option>
+                    <option value="纵向">纵向</option>
+                </select>
+            </div>
+            <div class="form-group" style="margin-right: 12px;">
+                <label for="" class="control-label">数据粒度：</label>
+                <label class="radio-inline">
+                    <input type="radio" name="" id="" value="option1"> 小时
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="" id="" value="option1"> 周
+                </label>
+            </div>
+            <div class="form-group">
+                <lable class="control-label">时段:</lable>
+                <input size="16" class="form-control form_datetime" type="text" value="2014-12-24">
+                <span> - </span>
+                <input size="16" class="form-control form_datetime" type="text" value="2014-12-24" style="margin-right: 12px;">
+            </div>
+            <div class="form-group">
+                <lable class="control-label">运营商:</lable>
+                <select name="" id="" class="form-control" style="margin-right: 12px;">
+                    <option value="全部操作系统">全部运营商</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <lable class="control-label">地区:</lable>
+                <select name="" id="" class="form-control">
+                    <option value="省">省</option>
+                </select>
+                <select name="" id="" class="form-control" style="margin-right: 12px;">
+                    <option value="市">市</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div class="form-group">
+                <lable class="control-label">操作系统:</lable>
+                <select name="" id="" class="form-control" style="margin-right: 12px;">
+                    <option value="操作系统">操作系统</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <lable class="control-label">浏览器:</lable>
+                <select name="" id="" class="form-control" style="margin-right: 12px;">
+                    <option value="浏览器">浏览器</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <lable class="control-label">码率:</lable>
+                <select name="" id="" class="form-control" style="margin-right: 12px;">
+                    <option value="码率">码率</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <lable class="control-label">加载途径:</lable>
+                <select name="" id="" class="form-control" style="margin-right: 12px;">
+                    <option value="加载途径">加载途径</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <button type="button" class="btn btn-primary">查询</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<script>
+$(function() {
+    $('.form_datetime').calendar();
+});
+</script>
+ 
+<div class="row" style="margin-bottom: 20px;overflow-y: auto;">
+    <div id="containerA" style="min-width:800px;height:400px"></div>
+    
+    <script>
+    $(function() {
+        $('#containerA').highcharts({
+            chart: {
+                type: 'spline'
+            },
+            title: {
+                text: '实时反馈'
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                categories: ['11:15', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
+                    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
+                ],
+                labels: {
+                    rotation: -90,
+                    align: 'right',
+                    style: {
+                        fontSize: '12px'
+                    }
+                }
+            },
+            yAxis: {
+                title: {
+                    text: ''
+                },
+                labels: {
+                    formatter: function() {
+                        return this.value
+                    }
+                }
+            },
+            tooltip: {
+                crosshairs: true,
+                shared: true
+            },
+            plotOptions: {
+                spline: {
+                    marker: {
+                        radius: 3,
+                        lineColor: '#666666',
+                        lineWidth: 0.5
+                    }
+                }
+            },
+            legend: {
+                layout: 'horizontal',
+                align: 'left',
+                verticalAlign: 'top',
+                x: 0,
+                y: 0,
+                floating: true,
+                backgroundColor: '#FFFFFF',
+                borderWidth: 1
+            },
+            series: [{
+                name: '当前',
+                marker: {
+                    symbol: 'square'
+                },
+                data: [7.0, 6.9, 9.5, 14.5, 18.2, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6]
+
+            }, {
+                name: '一天前',
+                marker: {
+                    symbol: 'diamond'
+                },
+                data: [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]
+            }, {
+                name: '一周前',
+                marker: {
+                    symbol: 'diamond'
+                },
+                data: [3.9, 3.2, 2.7, 4.5, 15.9, 13.2, 17.0, 19.6, 13.2, 9.3, 3.6, 2.8]
+            }]
+        });
+    });
+    </script>
+    
+</div> 
+<div class="row" style="margin-bottom: 20px;">
+    <p>反馈次数 2014.11.25 03:02 ~ 2014.11.23 05:09 *红色虚线表示警戒值:
+        <span class="text-danger">00,000</span>
+    </p>
+    <div id="containerB" style="min-width:800px;height:400px"></div>
+    
+    <script>
+    $(function() {
+        $('#containerB').highcharts({
+            chart: {
+                type: 'bar'
+            },
+            title: {
+                text: ''
+            },
+            xAxis: {
+                categories: ['无法播放', '播放卡顿', '画面声音问题', '地区限制', '其它条目', '无法播放', '播放卡顿', '画面声音问题', '地区限制', '其它条目', '无法播放', '播放卡顿', '画面声音问题', '地区限制', '其它条目'],
+                title: {
+                    text: null
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Population (millions)',
+                    align: 'high'
+                },
+                labels: {
+                    overflow: 'justify'
+                },
+                plotLines: [{
+                    color: 'red', //线的颜色，定义为红色
+                    dashStyle: 'ShortDot', //默认值，这里定义为实线
+                    value: 480, //定义在那个值上显示标示线，这里是在x轴上刻度为3的值处垂直化一条线
+                    width: 1 //标示线的宽度，2px
+                }]
+            },
+            tooltip: {
+                valueSuffix: ' millions'
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+            legend: {
+                layout: 'vertical',
+                align: 'right',
+                verticalAlign: 'top',
+                x: -40,
+                y: 100,
+                floating: true,
+                borderWidth: 1,
+                backgroundColor: '#FFFFFF',
+                shadow: true
+            },
+            credits: {
+                enabled: false
+            },
+            series: [{
+                name: 'Year 1800',
+                data: [107, 31, 635, 203, 2, 107, 31, 635, 203, 2, 107, 31, 635, 203, 2]
+            }]
+        });
+    });
+    </script>
+    
+</div>            </div>
+        </div>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/plugins/metisMenu/metisMenu.min.js"></script>
+        <script src="js/sb-admin-2.js"></script>
+
+</body>
+
+</html>

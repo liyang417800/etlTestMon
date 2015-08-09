@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite>
+<author>liyang</author>
+<description>ETL测试场景case</description>
+<testcase id="case3">
+<description>BI数据测试diff</description>
+<inputs>
+<sql1><![CDATA[select count(1) from test.liyang]]></sql1>
+<sql2><![CDATA[select count(1) from test.liyang]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[ sql1[0] == sql2[0] ]]></check1>
+</expects>
+</testcase>
+<testcase id="case4">
+<description>BI数据测试diffliyang</description>
+<inputs>
+<sql1><![CDATA[select count(1) from test.liyang]]></sql1>
+<sql2><![CDATA[select count(1) from test.liyang]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[sql1[0] == sql2[0]]]></check1>
+</expects>
+</testcase>
+</suite>

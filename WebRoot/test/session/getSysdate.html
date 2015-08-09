@@ -1,0 +1,17 @@
+<html>
+	<body>
+		<script type="text/javascript">
+		var today = new Date(); //新建一个Date对象
+		var date = today.getDate();//查询当月日期
+		if(date<=9)date="0"+date;		
+		var day = today.getDay();//查询当前星期几
+		var month = today.getMonth();//查询月份
+		if(month<=9)month="0"+month;			
+		var year = today.getFullYear();//查询年份
+		var now = year + month + date;
+		var te = document.getElementById("te");
+		te.value = now;
+		document.write(now+"<br />");
+		</script>
+	</body>
+</html>

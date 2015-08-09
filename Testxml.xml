@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<suite>
+<author>liyang</author>
+<description>ETL���Գ���case</description>
+<testcase id="case1">
+<description>test</description>
+<inputs>
+<sql1><![CDATA[aaa]]></sql1>
+<sql2><![CDATA[aaa]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[aaa]]></check1>
+</expects>
+</testcase>
+<testcase id="case2">
+<description>aaa</description>
+<inputs>
+<sql1><![CDATA[aaa]]></sql1>
+<sql2><![CDATA[aaa]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[aa]]></check1>
+</expects>
+</testcase>
+<testcase id="case3">
+<description>aaa</description>
+<inputs>
+<sql1><![CDATA[aaa]]></sql1>
+<sql2><![CDATA[aaa]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[aaa]]></check1>
+</expects>
+</testcase>
+<testcase id="case4">
+<description>数据量检查</description>
+<inputs>
+<sql1><![CDATA[fadfd]]></sql1>
+<sql2><![CDATA[afdasd]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[sql1[0][0] == sql2[0][0]]]></check1>
+</expects>
+</testcase>
+<testcase id="case5">
+<description>类型检查</description>
+<inputs>
+<sql1><![CDATA[ddddd]]></sql1>
+<sql2/>
+</inputs>
+<expects>
+<check1><![CDATA[sql1[0][0] == sql2[0][0]]]></check1>
+</expects>
+</testcase>
+<testcase id="case6">
+<description>取值分布检查</description>
+<inputs>
+<sql1><![CDATA[wwwwww]]></sql1>
+<sql2/>
+</inputs>
+<expects>
+<check1><![CDATA[sql1[0][0] == sql2[0][0]]]></check1>
+</expects>
+</testcase>
+<testcase id="case7">
+<description>数据量检查</description>
+<inputs>
+<sql1><![CDATA[555555]]></sql1>
+<sql2><![CDATA[555]]></sql2>
+</inputs>
+<expects>
+<check1><![CDATA[sql1[0][0] == sql2[0][0]]]></check1>
+</expects>
+</testcase>
+</suite>

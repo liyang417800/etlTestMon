@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.4" 
+	xmlns="http://java.sun.com/xml/ns/j2ee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee 
+	http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd" id="WebApp_1422945513168">
+  <welcome-file-list>
+    <welcome-file>ListAction</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>addAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.addAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>addAction</servlet-name>
+  	<url-pattern>/addAction</url-pattern>
+  </servlet-mapping>
+  <servlet>
+  	<servlet-name>ListAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.ListAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>ListAction</servlet-name>
+  	<url-pattern>/ListAction</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>
+  	<servlet-name>changeAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.changeAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>changeAction</servlet-name>
+  	<url-pattern>/changeAction</url-pattern>
+  </servlet-mapping>
+  
+   
+  <servlet>
+  	<servlet-name>delAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.delAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>delAction</servlet-name>
+  	<url-pattern>/delAction</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>zhixingAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.zhixingAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>zhixingAction</servlet-name>
+  	<url-pattern>/zhixingAction</url-pattern>
+  </servlet-mapping>
+    
+   <servlet>
+  	<servlet-name>reportAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.reportAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>reportAction</servlet-name>
+  	<url-pattern>/reportAction</url-pattern>
+  </servlet-mapping>  
+  
+  <servlet>
+  	<servlet-name>addPageAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.addPageAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>addPageAction</servlet-name>
+  	<url-pattern>/addPageAction</url-pattern>
+  </servlet-mapping>
+  
+   <servlet>
+  	<servlet-name>addcaseAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.addcaseAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>addcaseAction</servlet-name>
+  	<url-pattern>/addcaseAction</url-pattern>
+  </servlet-mapping>
+  
+    <servlet>
+  	<servlet-name>CaseListAction</servlet-name>	
+  	<servlet-class>com.etl.etlmonitor.action.CaseListAction</servlet-class>	
+  </servlet>  
+  <servlet-mapping>
+  	<servlet-name>CaseListAction</servlet-name>
+  	<url-pattern>/CaseListAction</url-pattern>
+  </servlet-mapping>
+</web-app>
